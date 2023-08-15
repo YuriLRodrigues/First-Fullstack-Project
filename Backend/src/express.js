@@ -29,7 +29,17 @@ router.post('/users', async (req, res)=> {
 router.delete('/users/deletebyname/:firstName', async (req, res) => {
   try {
     const firstName = req.params.firstName
-    const user = await UserModel.findOneAndDelete({firstName}, {new: true})
+    const user = await UserModel.findOneAndDelete({firstName: firstName}, {new: true})
+    res.status(201).json(user)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+})
+
+router.patch('/users/updatebyname/:firstName', async (req, res)=> {
+  try {
+    const firstName = req.params.firstName
+    const user = await UserModel.findOneAndUpdate({firstName: firstName}, req.body,{new: true})
     res.status(201).json(user)
   } catch (error) {
     res.status(500).send(error.message)
