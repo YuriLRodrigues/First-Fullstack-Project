@@ -26,20 +26,20 @@ router.post('/users', async (req, res)=> {
   }
 })
 
-router.delete('/users/deletebyname/:firstName', async (req, res) => {
+router.delete('/users', async (req, res) => {
   try {
-    const firstName = req.params.firstName
-    const user = await UserModel.findOneAndDelete({firstName: firstName}, {new: true})
+    const {email, password, firstName} = req.body
+    const user = await UserModel.findOneAndDelete({email, password, firstName}, {new: true})
     res.status(201).json(user)
   } catch (error) {
     res.status(500).send(error.message)
   }
 })
 
-router.patch('/users/updatebyname/:firstName', async (req, res)=> {
+router.patch('/users/update', async (req, res)=> {
   try {
-    const firstName = req.params.firstName
-    const user = await UserModel.findOneAndUpdate({firstName: firstName}, req.body,{new: true})
+    const {email} = req.body
+    const user = await UserModel.findOneAndUpdate({email}, req.body, {new: true})
     res.status(201).json(user)
   } catch (error) {
     res.status(500).send(error.message)
