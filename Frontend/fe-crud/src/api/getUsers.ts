@@ -1,4 +1,4 @@
 export const getUsers = async () => {
-  const users = await fetch(`http://localhost:8080/users`)
-  return await users.json()
+  const res = await fetch(`http://localhost:8080/users`)
+  return await res.json()
 }

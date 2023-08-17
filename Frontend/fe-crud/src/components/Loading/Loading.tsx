@@ -1,9 +1,8 @@
-import { BiLoaderAlt } from "react-icons/bi";
-import './loading.sass'
+import './loading.scss'
 
 const Loading = () => {
   return (
-    <p className="loading-p"><BiLoaderAlt /></p>
+    <span className='loader'></span>
   )
 };
 

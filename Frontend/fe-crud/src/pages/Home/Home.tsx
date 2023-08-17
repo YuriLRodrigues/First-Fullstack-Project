@@ -40,7 +40,7 @@ export const Home = () => {
                 placeholder="Primeiro nome"
               />
               {errors.firstName && (
-                <span className="errors">{errors.firstName.message}</span>
+                <span className="error-message">{errors.firstName.message}</span>
               )}
 
               <input
@@ -50,7 +50,7 @@ export const Home = () => {
                 placeholder="Último nome"
               />
               {errors.lastName && (
-                <span className="errors">{errors.lastName.message}</span>
+                <span className="error-message">{errors.lastName.message}</span>
               )}
 
               <input
@@ -60,7 +60,7 @@ export const Home = () => {
                 placeholder="E-mail"
               />
               {errors.email && (
-                <span className="errors">{errors.email.message}</span>
+                <span className="error-message">{errors.email.message}</span>
               )}
 
               <input
@@ -70,7 +70,7 @@ export const Home = () => {
                 placeholder="Senha"
               />
               {errors.password && (
-                <span className="errors">{errors.password.message}</span>
+                <span className="error-message">{errors.password.message}</span>
               )}
 
               <input
@@ -80,7 +80,7 @@ export const Home = () => {
                 placeholder="Confirme sua senha"
               />
               {errors.confirmPassword && (
-                <span className="errors">{errors.confirmPassword.message}</span>
+                <span className="error-message">{errors.confirmPassword.message}</span>
               )}
 
               <button type="submit">
