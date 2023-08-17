@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "../pages/RootLayout";
+import RootLayout from "./RootLayout";
 import { Home } from "../pages/Home/Home";
 import UserList from "../pages/UserList/UserList";
 import Update from "../pages/UpdateUser/Update";
+import Delete from "../pages/DeleteUser/Delete";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
     {
       path: "/update",
       element: <Update />
+    },
+    {
+      path: "/delete",
+      element: <Delete />
     }
   ],
   },
