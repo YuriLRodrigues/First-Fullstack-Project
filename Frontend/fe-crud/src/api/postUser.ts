@@ -1,6 +1,6 @@
 import { RegisterFormProps } from "../types/registerFormProps";
 
-export const fetchRegisterUser = async (data: RegisterFormProps) => {
+export const postUser = async (data: RegisterFormProps) => {
   try {
     const res = await fetch("http://localhost:8080/users", {
       method: "POST",

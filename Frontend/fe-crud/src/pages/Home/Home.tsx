@@ -4,7 +4,7 @@ import { useRegisterForm } from "../../customHooks/useRegisterForm";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Loading from "../../components/Loading/Loading";
-import { fetchRegisterUser } from "../../api/fetchRegisterUser";
+import { postUser } from "../../api/postUser";
 
 export const Home = () => {
   const { errors, handleSubmit, isSubmitting, register } = useRegisterForm();
@@ -12,7 +12,7 @@ export const Home = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleFormSubmit = async (data: RegisterFormProps) => {
-    await fetchRegisterUser(data);
+    await postUser(data);
 
     setLoading(!loading);
 
