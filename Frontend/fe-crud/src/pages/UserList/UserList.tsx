@@ -1,6 +1,10 @@
+import './userlist.sass'
+
 const UserList = () => {
   return (
-    <div>UserList</div>
+    <div className="form-container ">
+      <h2 className="users-list-title">Users List</h2>
+    </div>
   )
 }
 
