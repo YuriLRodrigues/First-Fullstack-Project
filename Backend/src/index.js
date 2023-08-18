@@ -9,7 +9,17 @@ const router = require("./express");
 connectToDB();
 
 app.use(express.json());
-app.use(cors());
+
+app.use((request, response, next) => {
+  response.header("Access-Control-Allow-Origin", 'https://first-fs-project-with-hookform-zod.vercel.app');
+  response.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+  next();
+});
+app.use(cors({
+  origin: 'https://first-fs-project-with-hookform-zod.vercel.app',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
+
 app.use("/", router);
 
 const port = process.env.PORT || 8080;
