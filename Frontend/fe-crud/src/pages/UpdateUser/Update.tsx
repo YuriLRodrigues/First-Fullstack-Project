@@ -6,19 +6,26 @@ import Loading from "../../components/Loading/Loading";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import {errorNotify, sucessNotify} from '../../utils/notify'
+import { errorNotify, successNotify } from "../../utils/notify";
 
 const Update = () => {
   const { errors, handleSubmit, isSubmitting, register } = useUpdateForm();
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate()
 
-  const handleFormSubmit = (data: newPasswordProps) => {
-    updateUser(data)
-    setLoading(!loading);
-    setTimeout(() => {
-      navigate('/userlist');
-    }, 2000);
+  const handleFormSubmit = async (data: newPasswordProps) => {
+    const user = await updateUser(data)
+    if (user !== null){
+      successNotify('User updated successfully')
+      setTimeout(() =>{
+        setLoading(!loading);
+      }, 3000)
+      setTimeout(() => {
+        navigate('/userlist');
+      }, 3500);
+      return
+    }
+    errorNotify('Failed to update')
   };
 
   return (

@@ -1,5 +1,4 @@
 import { newPasswordProps } from "../types/updateFormProps";
-import { errorNotify, successNotify } from "../utils/notify";
 
 export const updateUser = async ({
   email,
@@ -22,11 +21,8 @@ export const updateUser = async ({
       }
     );
 
-    successNotify('User updated successfully')
-
     return await user.json();
   } catch (error) {
-    errorNotify('Failed to update')
     console.log(error);
   }
 };
