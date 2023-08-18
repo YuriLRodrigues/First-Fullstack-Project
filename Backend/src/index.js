@@ -11,14 +11,17 @@ connectToDB();
 app.use(express.json());
 
 app.use((request, response, next) => {
-  response.header("Access-Control-Allow-Origin", 'https://first-fs-project-with-hookform-zod.vercel.app');
-  response.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE, PATCH");
   next();
 });
-app.use(cors({
-  origin: 'https://first-fs-project-with-hookform-zod.vercel.app',
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+  })
+);
 
 app.use("/", router);
 
