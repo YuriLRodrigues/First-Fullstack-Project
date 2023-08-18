@@ -1,5 +1,5 @@
 export const getUsers = async () => {
-  const res = await fetch(`https://backend-fs-pi.vercel.app/users`, {
+  const res = await fetch(`https://backend-fs-pi.vercel.app/usersregister`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
