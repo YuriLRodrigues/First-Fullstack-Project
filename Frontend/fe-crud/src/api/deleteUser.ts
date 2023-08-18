@@ -1,4 +1,5 @@
 import { DeleteFormProps } from "../types/deleteFormProps";
+import { errorNotify, successNotify } from "../utils/notify";
 
 export const deleteUser = async ({ email, firstName, password }: DeleteFormProps) => {
   console.log('Deletando...')
@@ -17,9 +18,10 @@ export const deleteUser = async ({ email, firstName, password }: DeleteFormProps
       }),
     });
     const res = await user.json();
-    console.log(res)
+    successNotify("Successfully deleted")
     return res
   } catch (error) {
+    errorNotify("Failed to delete")
     console.log(error);
   }
 };

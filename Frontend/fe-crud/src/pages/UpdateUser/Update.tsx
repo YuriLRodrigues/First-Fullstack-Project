@@ -4,6 +4,9 @@ import { useUpdateForm } from "../../customHooks/useUpdateForm";
 import { newPasswordProps } from "../../types/updateFormProps";
 import Loading from "../../components/Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import {errorNotify, sucessNotify} from '../../utils/notify'
 
 const Update = () => {
   const { errors, handleSubmit, isSubmitting, register } = useUpdateForm();
@@ -11,7 +14,7 @@ const Update = () => {
   const navigate = useNavigate()
 
   const handleFormSubmit = (data: newPasswordProps) => {
-    updateUser(data);
+    updateUser(data)
     setLoading(!loading);
     setTimeout(() => {
       navigate('/userlist');
@@ -25,6 +28,7 @@ const Update = () => {
       ) : (
         <>
           <h2 className="register-title">Update Password</h2>
+          <ToastContainer />
           <form
             className="form-register"
             onSubmit={handleSubmit(handleFormSubmit)}
