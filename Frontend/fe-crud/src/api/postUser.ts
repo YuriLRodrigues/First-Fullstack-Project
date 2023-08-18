@@ -2,7 +2,7 @@ import { RegisterFormProps } from "../types/registerFormProps";
 
 export const postUser = async (data: RegisterFormProps) => {
   try {
-    const res = await fetch("http://localhost:8080/users", {
+    const res = await fetch("https://backend-fs-pi.vercel.app/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

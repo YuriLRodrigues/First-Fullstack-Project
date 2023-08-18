@@ -5,7 +5,7 @@ export const deleteUser = async ({ email, firstName, password }: DeleteFormProps
   try {
     
     console.log('Tentando...')
-    const user = await fetch("http://localhost:8080/users", {
+    const user = await fetch("https://backend-fs-pi.vercel.app/users", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

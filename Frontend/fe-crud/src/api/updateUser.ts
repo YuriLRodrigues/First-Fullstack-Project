@@ -7,7 +7,7 @@ export const updateUser = async ({
 }: newPasswordProps) => {
   try {
     const user = await fetch(
-      `http://localhost:8080/users/update`,
+      `https://backend-fs-pi.vercel.app/users/update`,
       {
         method: "PATCH",
         headers: {
